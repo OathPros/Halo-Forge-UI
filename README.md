@@ -43,6 +43,18 @@ After the deploy job succeeds, your site will be available at:
 
 - `https://<your-github-username>.github.io/<your-repo-name>/`
 
+### One-time GitHub setup
+
+In your GitHub repository:
+
+1. Go to **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Push to `main` or `master` (or run the workflow manually from **Actions**).
+
+After the deploy job succeeds, your site will be available at:
+
+- `https://<your-github-username>.github.io/<your-repo-name>/`
+
 ## Product workflow
 
 1. **Source**: create/select a batch, upload files and add pasted text, preview/edit source content.
