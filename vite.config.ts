@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? '';
+const env = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env ?? {};
+const repo = env.GITHUB_REPOSITORY?.split('/')[1] ?? '';
+const isGitHubActions = env.GITHUB_ACTIONS === 'true';
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.GITHUB_ACTIONS ? `/${repo}/` : '/'
+  base: isGitHubActions ? `/${repo}/` : '/'
 });
