@@ -27,9 +27,21 @@ npm run preview
 
 Deployment workflow: `.github/workflows/deploy-pages.yml`.
 
-- On `main` push (or manual dispatch), GitHub Actions runs `npm ci` and `npm run build`.
+- On `main`/`master` push (or manual dispatch), GitHub Actions runs `npm install` and `npm run build`.
 - `dist/` is uploaded as a Pages artifact and deployed.
 - `vite.config.ts` sets `base` dynamically from `GITHUB_REPOSITORY` during Actions so repo-based URLs resolve assets correctly.
+
+### One-time GitHub setup
+
+In your GitHub repository:
+
+1. Go to **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Push to `main` or `master` (or run the workflow manually from **Actions**).
+
+After the deploy job succeeds, your site will be available at:
+
+- `https://<your-github-username>.github.io/<your-repo-name>/`
 
 ## Product workflow
 
